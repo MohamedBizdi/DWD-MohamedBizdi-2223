@@ -1,4 +1,5 @@
 // declarations
+console.log(Math.ceil(Math.random()) * 10);
 const players = ['Magnus', 'Eline', 'Ding', 'Judith', 'Praggna'];
 const NUM_DICE = 3;
 const scores = [];
@@ -7,20 +8,17 @@ const scores = [];
 console.log(`
 DOBBELSTENEN
 ==============
-aantal deelnemers: ${players.length}
-`);
+aantal deelnemers: ${players.length}`);
 
 // throw dice
 for (let i = 0; i < players.length; i++) {
-    console.log(`${players[i]} gooit ${scores} punten`);
-    const dice = [NUM_DICE];
+    console.log(`${players[i]} gooit: `);
+    const dice = [];
     for (let j = 0; j < NUM_DICE; j++) {
         dice[j] = (Math.ceil(Math.random() * 7));
     }
     scores[i] = getTotal(dice);
     console.log(`${diceToString(dice)} ${scores[i]} punten`);
-
-    // console.log(`${diceToString(dice)}; dit is de juiste manier maar voor nu doe ik zoals hierboven ter controle van de scores.
 }
 
 // show winner
@@ -38,7 +36,8 @@ function diceToString(dice) {
             case 4: retval += '⚃ '; break;
             case 5: retval += '⚄ '; break;
             case 6: retval += '⚅ '; break;
-            default: break;
+            default:
+                break;
         }
     }
     return retval;
